@@ -4,3 +4,10 @@
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Register</button>
 </form>
+
+ <!-- Redirect to Login Page  -->
+
+<p>Already have an account?</p>
+<a href="index.php?page=login">
+    <button type="button">Login</button>
+</a>

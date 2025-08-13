@@ -16,6 +16,12 @@ if ($page === 'register') {
     require_once __DIR__ . "/../app/views/register.php";
 } elseif ($page === 'landing') {
     require_once __DIR__ . "/../app/views/landing.php";
-} else {
+}elseif ($page === 'logout') {
+    session_start();
+    session_destroy();
+    header("Location: index.php?page=login");
+    exit;
+}
+else {
     require_once __DIR__ . "/../app/views/login.php";
 }
