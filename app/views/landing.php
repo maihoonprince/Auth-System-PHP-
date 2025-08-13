@@ -1,13 +1,20 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php?page=login");
+    exit;
+}
+
 $user = $_SESSION['user'];
-
-
-echo "<h1>Welcome, " . htmlspecialchars($user['name']) . "</h1>";
-echo "<p>Email: " . htmlspecialchars($user['email']) . "</p>";
 ?>
+<div class="container">
+    <h1>Welcome, <?php echo htmlspecialchars($user['name']); ?></h1>
+    <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
 
-<!-- logout  -->
-
-<form action="index.php?page=logout" method="POST">
-    <button type="submit">Logout</button>
-</form>
+    <form action="index.php?page=logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</div>
